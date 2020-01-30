@@ -1,0 +1,25 @@
+<div class="row">
+        <div class="col-sm-5"> </div>
+        <div class="col-sm-2">
+                <div class="card text-center border-primary mb-3" style="width: 18rem;">
+                     <h5 class="card-title">Admin Login here</h5>
+                    <div class= "card-body">
+                            <div class="row"> 
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-3"><i class="fa fa-user fa-5x" ></i></div>
+                                    <div class="col-sm-5"></div>
+                            </div>
+                        <form (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                <label>Customer Id:</label>  <input type = "text" name="customerId" [(ngModel)]="AdminloginInformation.customerId" class="form-control" placeholder="Enter customerid here" required>
+                                </div>
+                                <div class="form-group">
+                                <label>Password:</label> <input type = "password" name="customerPassword" [(ngModel)]="AdminloginInformation.customerPassword" class="form-control" placeholder="Enter Password here" required> 
+                                </div>
+                                <button type="submit" class="btn btn-success">Login</button>
+                        </form>
+                    </div>
+                </div>          
+        </div>
+        <div class="col-sm-3"></div>
+ </div>

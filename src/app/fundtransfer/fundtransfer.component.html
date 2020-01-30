@@ -1,0 +1,17 @@
+
+<form style="align-self: center;" (ngSubmit)="onSubmit()">
+    
+    <p><b>Your customerId is : {{number}}</b></p>
+    
+     <div class="form-group">
+         <label>To CustomerId:</label>  <input type = "number" name="toAcc" [(ngModel)]="transactionDetails.toAcc"  class="form-control" placeholder="Enter customerId here" required>
+     </div>
+ 
+     <div class="form-group">
+         <label>Enter amount to be transfered:</label>  <input type = "number" name="amt" [(ngModel)]="transactionDetails.amt" class="form-control" placeholder="Enter amount here" required>
+      </div>
+ 
+     <button type="submit" class="btn btn-success" >Confirm transfer</button>
+ </form>
+ 
+ 

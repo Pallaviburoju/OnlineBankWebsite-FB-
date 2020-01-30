@@ -1,0 +1,92 @@
+<br>
+    <div>
+        <button class=" btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+<br>
+<h4><b>-----------------------------------------------------Admin manages data here-------------------------------------------------------</b></h4>
+
+<div>
+      <table class="table table-hover table-dark" >
+            <thead>
+              <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Customner Id</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Customer Email</th>
+                <th scope="col">Customer Password</th>
+                <th scope="col">Customer Address</th>
+                <th scope="col">Customer City</th>
+                <th scope="col">Customer Country</th>
+                <th scope="col">Customer Zip</th>
+                <th scope="col">Customer Phone number</th>
+                <th scope="col">Customer Balance</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor= "let cust of AdminloginInformation, let i = index">
+              
+                <th>{{i+1}}</th>
+                <td>{{cust.customerId}}</td>
+                <td>{{cust.customerName}}</td>
+                <td>{{cust.customerEmail}}</td>
+                <td>{{cust.customerPassword}}</td>
+                <td>{{cust.customerAddress}}</td>
+                <td>{{cust.customerCity}}</td>
+                <td>{{cust.customerCountry}}</td>
+                <td>{{cust.customerPhoneNumber}}</td>
+                <td>{{cust.customerZip}}</td>
+                <td>{{cust.customerBalance}}</td>
+                <td><button class="btn btn-danger" (click) = "delete(cust.customerId)">Delete</button></td>
+            </tr>
+            </tbody>
+          </table>
+ </div>
+  
+        <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="customerId" type="number" [(ngModel)]=AdminloginInformation.customerId>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    <div><br></div>
+<div>
+<table class="table table-hover table-dark" *ngIf = searched>
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Customner Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Customer Password</th>
+            <th scope="col">Customer Address</th>
+            <th scope="col">Customer City</th>
+            <th scope="col">Customer Country</th>
+            <th scope="col">Customer Zip</th>
+            <th scope="col">Customer Phone number</th>
+            <th scope="col">Customer Balance</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+            <!--ng-container is used bcoz iod we use div tag after tr tag for ngIf, the heading are misplacing                  -->
+          <ng-container *ngFor= "let cust of AdminloginInformation, let i = index" >
+           <tr *ngIf= "cust.customerId == id">
+            <th>{{i+1}}</th>
+            <td>{{cust.customerId}}</td>
+            <td>{{cust.customerName}}</td>
+            <td>{{cust.customerEmail}}</td>
+            <td>{{cust.customerPassword}}</td>
+            <td>{{cust.customerAddress}}</td>
+            <td>{{cust.customerCity}}</td>
+            <td>{{cust.customerCountry}}</td>
+            <td>{{cust.customerPhoneNumber}}</td>
+            <td>{{cust.customerZip}}</td>
+            <td>{{cust.customerBalance}}</td>
+            <td><button class="btn btn-danger" (click) = "delete(cust.customerId)">Delete</button></td>
+           </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary" (click)= "goToTop()">Go to top of the page</button>
+    <div><br></div>
+<!-- With dropdown search by id and search by name is possible -->
